@@ -47,6 +47,7 @@ Para el análisis espacial de la transmisión persistente (hotspots) se usan los
 
 ### Preprocesamiento de la base de datos.
 
+La base de datos de dengue en el SINAVE fue creada en el 2008
 
 
 ## Resultados
