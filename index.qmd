@@ -47,7 +47,21 @@ Para el análisis espacial de la transmisión persistente (hotspots) se usan los
 
 ### Preprocesamiento de la base de datos.
 
-La base de datos de dengue en el SINAVE fue creada en el 2008
+La base de datos de dengue en el SINAVE fue creada en el 2008 y originalmente contaba con menos de 200 variables. Con el ingreso del Chikungunya y Zika en el país el número de variables ascendia a 391 y actualmente la base de dengue cuenta con 432 columnas (Tabla 1). Este diferencia de columnas a través de los años, no permite concatenar por filas las bases del 2008 al 2024
+
+
+
+```{r, echo=FALSE, fig.cap= "Tabla 1. Número de columnas por Año de la base de Dengue"}
+tibble::tibble(year = c(2008:2024),
+               columnas = c(183, 183, 183, 183,
+                            183, 183, 183, 183,
+                          
+                            391, 423,
+                            425, 425,
+                            420, 
+                            432,432, 432, 432)) |>
+  gt::gt()
+```
 
 
 ## Resultados
