@@ -1,0 +1,32 @@
+---
+title: "Bases de datos de casos de dengue del SINAVE"
+subtitle: Felipe Antonio Dzul Manzanilla
+format: 
+  html:
+      theme: flatly
+      code-fold: true
+      toc: true
+      number-sections: true
+title-block-banner: true
+editor: visual
+execute:
+  freeze: auto
+---
+
+## Introdución
+
+## Objetivo
+
+Describir brevemente la actividad bajar y limpiar la base de datos de dengue del sinave.
+
+
+## Material & Métodos
+
+
+
+## Resultados
+
+
+## Bases de datos encriptadas
+
+
