@@ -23,8 +23,34 @@ Describir brevemente la actividad bajar y limpiar la base de datos de dengue del
 ## Material & Métodos
 
 
+### Acceso a la base de datos.
+
+El proceso de acceso a la base de datos de los casos de dengue se realizó en cinco pasos. En el primer paso se accedió al SINAVE en la página oficial de la Dirección General de Epidemiología (DGE) de la Secretaría de Salud federal en el siguiente link: [https://www.sinave.gob.mx](https://www.sinave.gob.mx). 
+
+![](sinave.png)
+
+
+En el segundo paso, se ingresó al modulo de vectores del a través del usuario y clave proporcionada por la DGE.
+La clave y usuario utilizada fue del director nacional del programa de prevención y Control de ETVs e Intoxicación por Veneno de Artrópodos, El dr. Fabián Correa Morales, quien es colaborador del proyecto de investigación.
+
+![](ingreso_sinave.png)
+
+Como tercer paso, se accedió al menu de reportes e ingresó al listado de la bases de datos de vectores (RICKETT, RICKETT, LEISHMAN, ENCEFALITIS, FIEBREMAYARO, FIEBREAMARILLA, PALUDISMO, ZIKA, CHIKUNGUNYA & DENGUE), para finalmente seleccionar y bajar la base de datos de dengue.
+
+![](dengue_dataset.png)
+
+En el paso cuarto, se guardaron las bases de datos en una carpeta selecionada en la unidad C (sinave_dataset/dengue) y en el paso cinco, se descomprimieron las bases de datos de dengue del sinave.
+
+![](sinave_dengue.png)
+
+Para el análisis espacial de la transmisión persistente (hotspots) se usan los archivos de cierre de año (DENGUE2024-31-12-2024.rar, DENGUE2023-31-12-2023.rar, DENGUE2022-31-12-2022.rar, etc) y para el análisis espacial de la transmisión activa (mapas de calor, cadenas de transmisión y el modelo LGCP), se usa los archivos semanales actualizado los lunes o martes de cada semana.
+
+### Preprocesamiento de la base de datos.
+
+
 
 ## Resultados
+
 
 
 ## Bases de datos encriptadas
