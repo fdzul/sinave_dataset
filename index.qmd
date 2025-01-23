@@ -171,9 +171,10 @@ Las bases de datos fueron anonimizadas elimnando los indentificadores del domici
 ### Casos de Dengue de Guerrero 2008
 [Casos de Dengue de Guerrero 2008](https://github.com/fdzul/sinave_dataset/blob/main/dengue_2008_guerrero.txt)
 
+### Casos de Dengue de Guerrero 2024
 [Casos de Dengue de Guerrero 2024](https://github.com/fdzul/sinave_dataset/blob/main/dengue_2024_guerrero.txt)
 
 
 ## Conclusión
 
-La descripción breve del proceso de acceso de la base y el procesamiento de las bases de dengue a través de la imagenes, y la proporción de las dos muestra de base de datos del estado de Guerrero, constituyen elementos clave para comprobar que la actividad de bajar y limpiar la base de datos de dengue del sinave. Es importante señalar que estas bases se actualizar de manera semanal para la identificación de las áreas con transmisión activa.
+La descripción breve del proceso de acceso de la base y el procesamiento de las bases de dengue a través de las imagenes, y la proporción de las dos muestra de la base de datos del estado de Guerrero, constituyen elementos clave para comprobar que la **actividad de bajar y limpiar la base de datos de dengue del sinave**. Es importante señalar que estas bases se actualizan de manera semanal para la identificación de las áreas con transmisión activa.
