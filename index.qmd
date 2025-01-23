@@ -45,9 +45,9 @@ En el paso cuarto, se guardaron las bases de datos en una carpeta selecionada en
 
 Para el análisis espacial de la transmisión persistente (hotspots) se usan los archivos de cierre de año (DENGUE2024-31-12-2024.rar, DENGUE2023-31-12-2023.rar, DENGUE2022-31-12-2022.rar, etc) y para el análisis espacial de la transmisión activa (mapas de calor, cadenas de transmisión y el modelo LGCP), se usa los archivos semanales actualizado los lunes o martes de cada semana.
 
-### Preprocesamiento de la base de datos.
+### Procesamiento de las bases de datos.
 
-La base de datos de dengue en el SINAVE fue creada en el 2008 y originalmente contaba con menos de 200 variables. Con el ingreso del Chikungunya y Zika en el país el número de variables ascendia a 391 y actualmente la base de dengue cuenta con 432 columnas (Tabla 1). Este diferencia de columnas a través de los años, no permite concatenar por filas las bases del 2008 al 2024
+La base de datos de dengue en el SINAVE fue creada en el 2008 y originalmente contaba con menos de 200 variables. Con el ingreso del Chikungunya y Zika en el país el número de variables ascendia a 391 y actualmente la base de dengue cuenta con 432 columnas (Tabla 1). Este diferencia de columnas a través de los años, no permite concatenar por filas las bases del 2008 al 2024, por lo que se decidió manejar dos bases de datos.
 
 Para la base del 2008 al 2015, se seleccionaron las siguientes columnas VEC_ID, IDE_EDA_ANO, IDE_SEX, IDE_CAL, IDE_CALLE1, IDE_CALLE2, IDE_COL, IDE_CP,
 CVE_LOC, DES_LOC, CVE_MPO, DES_MPO.x, DES_JUR, CVE_EDO, DES_EDO,
@@ -149,7 +149,6 @@ static_bump_map(dataset = den2024,
                 pal_vir = "viridis")
 ```
 
-
 ```{r tremap_2024, echo=FALSE, warning=FALSE}
 path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2024/DENGUE2_.txt"
 x <- data.table::fread(path_sinave,
@@ -166,9 +165,15 @@ densnv::mp_treemap(country = TRUE,
 
 ## Bases de datos encriptadas
 
+Se proporcionan como ejemplo y muestra dos bases de datos del estado de guerrero correspondientes con los años 2008 y 2024.
+Las bases de datos fueron anonimizadas elimnando los indentificadores del domicilio y la localidad. 
+
+### Casos de Dengue de Guerrero 2008
+[Casos de Dengue de Guerrero 2008](https://github.com/fdzul/sinave_dataset/blob/main/dengue_2008_guerrero.txt)
+
+[Casos de Dengue de Guerrero 2024](https://github.com/fdzul/sinave_dataset/blob/main/dengue_2024_guerrero.txt)
+
 
 ## Conclusión
 
-La descripción breve, la imagenes y 
-
-
+La descripción breve del proceso de acceso de la base y el procesamiento de las bases de dengue a través de la imagenes, y la proporción de las dos muestra de base de datos del estado de Guerrero, constituyen elementos clave para comprobar que la actividad de bajar y limpiar la base de datos de dengue del sinave. Es importante señalar que estas bases se actualizar de manera semanal para la identificación de las áreas con transmisión activa.
