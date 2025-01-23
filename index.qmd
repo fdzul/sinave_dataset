@@ -1,6 +1,6 @@
 ---
 title: "Bases de datos de casos de dengue del SINAVE"
-subtitle: Felipe Antonio Dzul Manzanilla
+subtitle: Felipe Antonio Dzul Manzanilla | CVU 6172953
 format: 
   html:
       theme: flatly
@@ -49,6 +49,14 @@ Para el análisis espacial de la transmisión persistente (hotspots) se usan los
 
 La base de datos de dengue en el SINAVE fue creada en el 2008 y originalmente contaba con menos de 200 variables. Con el ingreso del Chikungunya y Zika en el país el número de variables ascendia a 391 y actualmente la base de dengue cuenta con 432 columnas (Tabla 1). Este diferencia de columnas a través de los años, no permite concatenar por filas las bases del 2008 al 2024
 
+Para la base del 2008 al 2015, se seleccionaron las siguientes columnas VEC_ID, IDE_EDA_ANO, IDE_SEX, IDE_CAL, IDE_CALLE1, IDE_CALLE2, IDE_COL, IDE_CP,
+CVE_LOC, DES_LOC, CVE_MPO, DES_MPO.x, DES_JUR, CVE_EDO, DES_EDO,
+VEC_EST, DIAG_PROBABLE, DES_DIAG_PROBABLE, DES_DIAG_FINAL, FEC_INI_SIGNOS, ANO, y SEM con la finalidad de unirlas por fila.
+
+En Las bases del 2016 al 2024, se seleccionaron las siguientes columnas VEC_ID, IDE_EDA_ANO, IDE_SEX, IDE_CAL, NUM_EXT, NUM_INT, IDE_COL, IDE_CP, CVE_LOC_RES, DES_LOC_RES, CVE_MPO_RES, DES_MPO_RES, CVE_EDO_RES, DES_EDO_RES, CVE_LOC_REP, DES_LOC_REP, CVE_MPO_REP, DES_MPO_REP, DES_JUR_REP, CVE_EDO_REP, DES_EDO_REP,
+ESTATUS_CASO, CVE_DIAG_PROBABLE, DES_DIAG_PROBABLE, DES_DIAG_FINAL,
+FEC_INI_SIGNOS_SINT, ANO, SEM, RESULTADO_PCR, y MANEJO, con la finalidad de unir ambas bases por fila.
+
 
 ```{r, echo=FALSE, fig.cap= "Tabla 1. Número de columnas por año de la base de Dengue"}
 tibble::tibble(year = c(2008:2024),
@@ -65,8 +73,102 @@ tibble::tibble(year = c(2008:2024),
 
 ## Resultados
 
+Las bases de datos de dengue pueden agregarse por diferentes escalas espaciales (estado, municipio, jurisdicción, localidad, etc) y temporales (año, semestre, cuatrimestre, trimestre, mes semana, dia). Adicionalmente la base de datos, pueden geocodificarse con los datos del domicilio de los casos de dengue, y a partir de su conversión a datos de patrón de puntos, pueden agregarse a cualquier escala espacial (regular (hexágonos, triángulos, cuadrados, etc), o irregular (estados,municipios, jurisdicciones, agebs, sectores, colonias, etc.)). Acontinuación se proporciona una descripción general y amplia de las bases de datos de dengue obtenidas del SINAVE, asi como las distribución de los casos por estado de los años 2023 y 2024.
+
+### Base de datos de Dengue del 2008 al 2015
+
+#### Resumen de la base
+```{r dengue_2008_2015, echo=FALSE, warning=FALSE}
+load("~/Library/CloudStorage/OneDrive-Personal/automatic_read_sinave/8.RData/den/den2008_2024.RData")
+skimr::skim(den2008_2015)
+```
+
+### Dase de datos de Dengue del 2016 al 2024
+
+#### Resumen de la base
+
+```{r dengue_2016_2024, echo=FALSE, warning=FALSE}
+den2016_2024 |> dplyr::select(-onset) |> skimr::skim()
+```
+
+#### Casos de dengue por Estado en el 2023
+
+```{r map_2023, echo=FALSE, warning=FALSE}
+path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2023/DENGUE2_.txt"
+
+den2023 <- data.table::fread(path_sinave,
+                             #select = vect_cols2,
+                             encoding = "Latin-1",
+                             quote="",
+                             fill=TRUE)
+source("~/Dropbox/r_developments/r_new_functions/3.Functions/static_bump_map.R")
+static_bump_map(dataset = den2023,
+                year = "2023",
+                state = TRUE,
+                size_text_value = 2,
+                size_text = 2,
+                country_text_x = 0.5,
+                country_text_y = 0.8,
+                line_size = 1.5,
+                pal_vir = "viridis")
+```
+
+```{r tremap_2023, echo=FALSE, warning=FALSE}
+path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2023/DENGUE2_.txt"
+x <- data.table::fread(path_sinave,
+                       #select = vect_cols2,
+                       encoding = "Latin-1",
+                       quote="",
+                       fill=TRUE)
+
+densnv::mp_treemap(country = TRUE,
+                   year = 2023,
+                   snv_dataset = x)
+```
+
+
+#### Casos de dengue por Estado en el 2024
+
+```{r map_2024, echo=FALSE, warning=FALSE}
+path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2024/DENGUE2_.txt"
+
+den2024 <- data.table::fread(path_sinave,
+                             #select = vect_cols2,
+                             encoding = "Latin-1",
+                             quote="",
+                             fill=TRUE)
+source("~/Dropbox/r_developments/r_new_functions/3.Functions/static_bump_map.R")
+static_bump_map(dataset = den2024,
+                year = "2024",
+                state = TRUE,
+                size_text_value = 2,
+                size_text = 2,
+                country_text_x = 0.5,
+                country_text_y = 0.8,
+                line_size = 1.5,
+                pal_vir = "viridis")
+```
+
+
+```{r tremap_2024, echo=FALSE, warning=FALSE}
+path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2024/DENGUE2_.txt"
+x <- data.table::fread(path_sinave,
+                       #select = vect_cols2,
+                       encoding = "Latin-1",
+                       quote="",
+                       fill=TRUE)
+
+densnv::mp_treemap(country = TRUE,
+                   year = 2024,
+                   snv_dataset = x)
+```
 
 
 ## Bases de datos encriptadas
+
+
+## Conclusión
+
+La descripción breve, la imagenes y 
 
 
